@@ -27,16 +27,24 @@ a:hover {
     text-decoration: none;
 }
 
+
+/* keeps everything in a small container at the middle */
+
 .container {
     width: 80%;
     margin: 0 auto;
 }
+
+
+/* styling navBar */
 
 #navBar {
     padding: 10px 0;
     background: var(--navBarBg);
     display: flex;
     position: sticky;
+    z-index: 999;
+    /*to keep it at the top all the time */
     top: 0;
     box-shadow: -3px 0px 15px #aaa;
 }
@@ -132,6 +140,9 @@ a:hover {
     -ms-transition: all linear 0.3s;
     -o-transition: all linear 0.3s;
 }
+
+
+/* done styling navBar */
 
 @media screen and (min-width: 1080px) {
     #navBar .collaps {
