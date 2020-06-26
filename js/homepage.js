@@ -1,17 +1,17 @@
 homeMain();
 
 async function homeMain() {
-    var banner = document.getElementById('banner');
+    var bannerImg = document.getElementById('banner').querySelectorAll('.images');
     var changeDelay = 5000;
-    setInterval(autoplay, banner.children.length * changeDelay, banner, changeDelay);
+    setInterval(autoplay, bannerImg.length * changeDelay, bannerImg, changeDelay);
 }
 
-async function autoplay(banner, delay) {
-    var sz = banner.children.length;
-    await setOpacity(banner.children[0], banner.children[sz - 1], delay);
+async function autoplay(bannerImg, delay) {
+    var sz = bannerImg.length;
+    await setOpacity(bannerImg[0], bannerImg[sz - 1], delay);
 
     for (let i = 1; i < sz; i++) {
-        await setOpacity(banner.children[i], banner.children[i - 1], delay);
+        await setOpacity(bannerImg[i], bannerImg[i - 1], delay);
     }
 }
 
