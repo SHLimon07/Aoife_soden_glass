@@ -210,6 +210,57 @@ a:hover {
     border-left: 1px solid #a8a8a8;
 }
 
+
+/* done styling the bottom navigation */
+
+
+/* styling the footer */
+
+#footer {
+    background: var(--darkText);
+    padding: 30px 0;
+    position: relative;
+}
+
+#footer .toTopButton {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: -30%;
+    z-index: 0;
+    background: var(--darkText);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--lightText);
+    font-size: 18px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    border-top-left-radius: 20px;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+
+#footer .toTopButton:hover {
+    color: var(--blueBtn);
+}
+
+#footer .toTopButton span {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+
 @media screen and (min-width: 1080px) {
     #navBar .collaps {
         position: relative;
