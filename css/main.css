@@ -173,6 +173,43 @@ a:hover {
 
 /* done styling navBar */
 
+
+/* styling the bottom navigation */
+
+#bottomNav {
+    background: var(--navBgSolid);
+    color: #a8a8a8;
+}
+
+#bottomNav .subDiv {
+    padding: 30px 0;
+}
+
+#bottomNav .subDivTitle {
+    display: inline-block;
+    color: var(--lightText);
+    text-transform: uppercase;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+#bottomNav .addressDiv {
+    padding: 30px 20px;
+}
+
+#bottomNav .addressDiv .address {
+    padding: 20px 0;
+}
+
+#bottomNav .navigation .item {
+    padding: 10px 0;
+}
+
+#bottomNav .navigation {
+    padding-left: 20px;
+    border-left: 1px solid #a8a8a8;
+}
+
 @media screen and (min-width: 1080px) {
     #navBar .collaps {
         position: relative;
@@ -193,6 +230,21 @@ a:hover {
     }
     #navBar .buttonDiv {
         display: none;
+    }
+    #bottomNav .container {
+        display: flex;
+    }
+    #bottomNav .addressMain {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1080px) {
+    #bottomNav .container {
+        display: flex;
     }
 }
 
