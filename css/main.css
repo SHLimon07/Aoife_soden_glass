@@ -332,6 +332,9 @@ a:hover {
 #actionPanel .recentPost .post{
 	padding: 15px 0;
 	border-bottom: 1px solid var(--lightText);
+}
+
+#actionPanel .recentPost .postTitle{
 	color: var(--midText);
 	font-size: 14px;
 }
@@ -342,6 +345,9 @@ a:hover {
 
 #actionPanel .box div{
 	margin-right: 30px;
+}
+
+#actionPanel .box div a{
 	color: var(--midText);
 	font-size: 14px;
 }
