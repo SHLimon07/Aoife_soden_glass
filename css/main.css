@@ -2,6 +2,7 @@
     --navBarBg: linear-gradient(to bottom, #3b516b, #41556d, #30465f);
     --navBgSolid: #3b516b;
     --darkText: #343f4d;
+    --midText: #a8a8a8;
     --lightText: #e8e8e8;
     --blueBtn: #03c4eb;
 }
@@ -195,6 +196,7 @@ a:hover {
 
 #bottomNav .addressDiv {
     padding: 30px 20px;
+    word-wrap: break-word;
 }
 
 #bottomNav .addressDiv .address {
@@ -242,6 +244,7 @@ a:hover {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     border-top-left-radius: 20px;
+    border-bottom-right-radius: 50%;
     transition: none;
     -webkit-transition: none;
     -moz-transition: none;
@@ -259,6 +262,88 @@ a:hover {
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
+}
+
+#footer .content {
+    text-align: center;
+    color: var(--lightText);
+}
+
+/* this part of sttyling applies to all other pages except homepage */
+
+.pageHeading{
+	border-top: 1px solid var(--lightText);
+	border-bottom: 1px solid var(--lightText);
+	background: #f8f9f9;
+	padding: 20px 0;
+	color: var(--darkText);
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 32px;
+	letter-spacing: 2px;
+}
+#actionPanel {
+	padding-top: 40px;
+}
+
+#actionPanel .sub{
+	padding: 15px 0;
+}
+
+#actionPanel .searchBox{
+	width: 100%;
+	display: flex;
+}
+
+#actionPanel .searchBox .search{
+	width: 100%;
+	margin-right: 5px;
+	padding: 10px;
+	border: none;
+	background: var(--lightText);
+	outline: none;
+}
+
+#actionPanel .searchBox .btn{
+	width: 100px;
+	border: 1px solid var(--navBgSolid);
+	background-color: var(--navBgSolid);
+	color: var(--lightText);
+	outline: none;
+	cursor: pointer;
+	transition: all linear 0.2s;
+}
+
+#actionPanel .searchBox .btn:hover{
+	background-color: #fff;
+	color: var(--navBgSolid);
+	transform: scale(0.95);
+}
+
+#actionPanel .title{
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	color: var(--darkText);
+	padding-bottom: 15px;
+}
+
+#actionPanel .recentPost .post{
+	padding: 15px 0;
+	border-bottom: 1px solid var(--lightText);
+	color: var(--midText);
+	font-size: 14px;
+}
+
+#actionPanel .box{
+	display: flex;
+}
+
+#actionPanel .box div{
+	margin-right: 30px;
+	color: var(--midText);
+	font-size: 14px;
 }
 
 @media screen and (min-width: 1080px) {
@@ -289,7 +374,17 @@ a:hover {
         display: grid;
         grid-template-columns: 30% 30% 30%;
         justify-content: space-between;
-        overflow: hidden;
+    }
+
+    .gridBody .container{
+    	display: grid;
+    	grid-template-columns: 70% 30%;
+    }
+
+    .gridBody #actionPanel{
+    	margin-left: 30px;
+    	padding-left: 30px;
+    	border-left: 1px solid var(--lightText);
     }
 }
 
@@ -304,4 +399,9 @@ a:hover {
         height: 93vh;
         opacity: 0.8;
     }
+}
+@media screen and (max-width: 768px) {
+	.pageHeading {
+		font-size: 20px;
+	}
 }
