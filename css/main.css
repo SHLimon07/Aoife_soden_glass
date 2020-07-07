@@ -156,6 +156,7 @@ a:hover {
 }
 
 #navBar .collaps li a {
+	text-transform: uppercase;
     display: inline-block;
     color: var(--lightText);
     padding: 20px 0;
@@ -353,7 +354,9 @@ a:hover {
 }
 
 @media screen and (min-width: 1080px) {
-    #navBar .collaps {
+
+	/* since there are many items on nav bar , made it colapsable for all devices */
+    /* #navBar .collaps {
         position: relative;
         top: 0;
         left: 0;
@@ -368,11 +371,11 @@ a:hover {
         align-items: center;
         width: auto;
         height: 100%;
-        padding: 0 10px;
+        padding: 0 15px;
     }
     #navBar .buttonDiv {
         display: none;
-    }
+    } */
     #bottomNav .container {
         display: flex;
     }
@@ -400,12 +403,12 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 1080px) {
+/* @media screen and (max-width: 1080px) { */
     #navBar .collaps.toggle {
         height: 93vh;
         opacity: 0.8;
     }
-}
+/* } */
 @media screen and (max-width: 768px) {
 	.pageHeading {
 		font-size: 20px;
