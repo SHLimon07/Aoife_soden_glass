@@ -113,10 +113,10 @@ function checkIf()
 }
 
 function initContent (newsData) {
-
-    console.log(newsData);
     // body... 
+
     var sz = newsData.length;
+    sz = sz>4?4:sz;
     var mainDiv = document.querySelector('.newsDivs');
     for(var i=0;i<sz;i++)
     {
@@ -172,14 +172,16 @@ function carouselInit (div) {
     // body... 
     sz = div.children.length;
     var first = div.children[0];
-    first.id = "firstClone";
     var first = first.outerHTML;
     var last = div.children[sz-1];
-    last.id = "lastClone";
     var last = last.outerHTML;
 
     var middle = div.innerHTML;
     
     div.innerHTML = last + middle + first;
+
+    sz = div.children.length;
+    div.children[sz-1].id = "firstClone";
+    div.children[0].id = "lastClone";
 
 }
