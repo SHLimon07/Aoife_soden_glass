@@ -1,7 +1,9 @@
 // Getting the elements from HTML
-const carousel = document.getElementById('carousel');
-const size = carousel.children.length;
+var carousel;
+var size;
 var carouselCounter;
+
+var newsUrl = "posts?categories=3";
 
 homeMain();
 
@@ -10,11 +12,22 @@ async function homeMain() {
     var changeDelay = 5000;
     setInterval(autoplay, bannerImg.length * changeDelay, bannerImg, changeDelay);
 
+    //getting the news posts
+    var newsData = await fetching(newsUrl);
+
+    //initializing the data to hmtl
+    initContent(newsData);
+
+    carousel = document.getElementById('carousel');
+    size = carousel.children.length;
+
     //since initialy the slider is on the postion of the last clone
     gotoFirst();
 
     //starting the autoplay 
-    setInterval(autoPlay, 5000);
+    setInterval(autoPlayCarousel, size*1000);
+
+
 }
 
 async function autoplay(bannerImg, delay) {
@@ -36,7 +49,7 @@ function setOpacity(now, prev, delay) {
     })
 }
 
-function autoPlay()
+function autoPlayCarousel()
 {
     //continiously move to the next slide
     gotoNext();
@@ -97,4 +110,76 @@ function checkIf()
             gotoLast();//to create the loop effect
         }
     });
+}
+
+function initContent (newsData) {
+
+    console.log(newsData);
+    // body... 
+    var sz = newsData.length;
+    var mainDiv = document.querySelector('.newsDivs');
+    for(var i=0;i<sz;i++)
+    {
+        createNews(newsData[i],mainDiv);
+    }
+
+    carouselInit(mainDiv);
+}
+
+function createNews (data,div) {
+    // body... 
+
+    newsId = data.id;
+
+    var newsDiv = document.createElement('div');
+    newsDiv.classList.add('news');
+    newsDiv.classList.add('carouselItem');
+    
+    var imageLink = document.createElement('a');
+    imageLink.href = "news.html?id="+newsId;
+    
+    var image = document.createElement('img');
+    image.src = getImageSource(data);
+    
+    var contentDiv = document.createElement('div');
+    contentDiv.classList.add('content');
+    
+    var titleDiv = document.createElement('div');
+    titleDiv.classList.add('title');
+
+    var title = document.createElement('a');
+    title.innerHTML = data.title.rendered;
+    title.href = "news.html?id="+newsId;
+
+    var textDiv = document.createElement('div');
+    textDiv.classList.add('text');
+
+    var text = document.createElement('span');
+    text.innerHTML = data.excerpt.rendered;
+
+    //now appending the child elements to their parents
+    div.appendChild(newsDiv);
+    newsDiv.appendChild(imageLink);
+    imageLink.appendChild(image);
+    newsDiv.appendChild(contentDiv);
+    contentDiv.appendChild(titleDiv);
+    titleDiv.appendChild(title);
+    contentDiv.appendChild(textDiv);
+    textDiv.appendChild(text);
+}
+
+function carouselInit (div) {
+    // body... 
+    sz = div.children.length;
+    var first = div.children[0];
+    first.id = "firstClone";
+    var first = first.outerHTML;
+    var last = div.children[sz-1];
+    last.id = "lastClone";
+    var last = last.outerHTML;
+
+    var middle = div.innerHTML;
+    
+    div.innerHTML = last + middle + first;
+
 }

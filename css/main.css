@@ -353,10 +353,9 @@ a:hover {
 	font-size: 14px;
 }
 
-@media screen and (min-width: 1080px) {
-
-	/* since there are many items on nav bar , made it colapsable for all devices */
-    /* #navBar .collaps {
+@media screen and (min-width: 1440px)
+{
+	#navBar .collaps {
         position: relative;
         top: 0;
         left: 0;
@@ -372,10 +371,20 @@ a:hover {
         width: auto;
         height: 100%;
         padding: 0 15px;
+        border-right: 1px solid #686868;
+    }
+    #navBar .collaps li:last-child a {
+    	border: none;
     }
     #navBar .buttonDiv {
         display: none;
-    } */
+    }
+}
+
+@media screen and (min-width: 1080px) {
+
+	/* since there are many items on nav bar , made it colapsable for all devices */
+    
     #bottomNav .container {
         display: flex;
     }
