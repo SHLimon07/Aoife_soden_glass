@@ -40,19 +40,28 @@
 	margin-bottom: 20px;
 }
 
-.contentBody .description .addToCart form {
-	display: flex;
-	flex-direction: column;
-}
-
-.contentBody .description .addToCart form input{
+.contentBody .description .addToCart .quantityDiv{
 	width: 50%;
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid var(--midText);
+	text-align: center;
 }
 
-.contentBody .description .addToCart form button{
+.contentBody .description .addToCart span{
+	padding: 5px 10px;
+	margin-left: 10px;
+	border: 1px solid var(--lightText);
+	border-radius: 5px;
+}
+
+.contentBody .description .addToCart .btn{
+	
+	user-select: none;
+	cursor: pointer;
+	background: var(--lightText);
+	font-weight: bold;
+}
+
+.contentBody .description .addToCart button{
+	display: block;
 	text-transform: capitalize;
 	font-weight: bold;
 	width: 50%;
@@ -65,7 +74,7 @@
 	cursor: pointer;
 }
 
-.contentBody .description .addToCart form button:hover{
+.contentBody .description .addToCart button:hover{
 	transform: scale(0.9);
 }
 
