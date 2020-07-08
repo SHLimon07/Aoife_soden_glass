@@ -4,7 +4,7 @@ main();
 async function main()
 {
 	//getting latest 5 posts
-	var recentData = await fetch('http://sajjad.jprkopat.com/semester2/glassart/wp-json/wp/v2/posts?per_page=5');
+	var recentData = await fetch('https://sajjad.jprkopat.com/semester2/glassart/wp-json/wp/v2/posts?per_page=5');
 	recentData = await recentData.json();
 
 	//initializing the action panel
@@ -62,7 +62,7 @@ async function fetching (type) {
 		type='';
 	else
 		type = 'wp/v2/'+type;
-	const response = await fetch('http://sajjad.jprkopat.com/semester2/glassart/wp-json/'+type);
+	const response = await fetch('https://sajjad.jprkopat.com/semester2/glassart/wp-json/'+type);
 	var dataSheet = await response.json();
 	return dataSheet;
 }
