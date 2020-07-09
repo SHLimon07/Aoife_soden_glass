@@ -18,6 +18,15 @@ async function shopItemMain() {
     //getting the object from local storage
     initCart();
 
+    //getting the post  comments data
+    var commentData = await fetching('comments?post='+itemId);
+
+    //creating the comments on html 
+    getComment(commentData);
+
+    //getting the comment form data
+    postComment();
+
 }
 
 function initCart () {
@@ -120,4 +129,62 @@ function getDetails (content, div) {
     {
         div.appendChild(text[i]);
     }
+}
+
+function getComment (commentData) {
+    // body... 
+    var name;
+    var content;
+
+    for(var i=0;i<commentData.length;i++)
+    {
+        name = commentData[i].author_name;
+        content = getContent(commentData[i]).querySelector('p').innerHTML;
+        
+        createCommentBox(name,content);
+    }
+    
+}
+
+function postComment (argument) {
+    // body... 
+
+    var form = document.getElementById('commentForm');
+
+    form.addEventListener('submit', function(e)
+    {
+        e.preventDefault();
+
+        var name = form.querySelector('.name').value;
+        var email = form.querySelector('.email').value;
+        var content = form.querySelector('.content').value;
+          
+        fetch("http://sajjad.jprkopat.com/semester2/glassart/api/respond/submit_comment?post_id="+itemId+"&name="+name+"&email="+email+"&content="+content);
+
+        createCommentBox(name,content);
+         
+   });
+}
+
+function createCommentBox (name,content) {
+    // body... 
+
+    var comment = document.createElement('div');
+    comment.classList.add('comment');
+    var nameDiv = document.createElement('div');
+    nameDiv.classList.add('name');
+    var nameSpan = document.createElement('span');
+    nameSpan.innerHTML = name;
+    var contentDiv = document.createElement('div');
+    contentDiv.classList.add('content');
+    var contentP = document.createElement('p');
+    contentP.innerHTML = content;
+
+    var mainDiv = document.querySelector('.commentsDiv');
+
+    mainDiv.appendChild(comment);
+    comment.appendChild(nameDiv);
+    comment.appendChild(contentDiv);
+    nameDiv.appendChild(nameSpan);
+    contentDiv.appendChild(contentP);
 }

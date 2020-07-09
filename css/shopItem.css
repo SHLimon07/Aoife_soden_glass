@@ -78,6 +78,30 @@
 	transform: scale(0.9);
 }
 
+.commentSection .commentsDiv{
+	padding: 10px 0;
+}
+
+.commentSection .commentsDiv .comment{
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 15px 0;
+}
+
+.commentSection .commentsDiv .comment .name{
+	padding: 10px 15px;
+	background-color: var(--navBgSolid);
+	color: #fff;
+	letter-spacing: 1px;
+	font-size: 18px;
+}
+
+.commentSection .commentsDiv .comment .content{
+	padding: 10px 15px;
+	min-height: 75px;
+	background-color: var(--lightText);
+}
+
 .commentSection{
 	border-top: 1px solid var(--lightText);
 }

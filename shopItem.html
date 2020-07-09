@@ -58,13 +58,30 @@
                             </div>
                         </div>
                         <div class="commentSection">
+                            
+                            <div class="commentsDiv">
+                                <div class="formTitle">
+                                    <span>Comments</span>
+                                </div>
+                                <!-- <div class="comment">
+                                    <div class="name">
+                                        <span>jahin</span>
+                                    </div>
+                                    <div class="content">
+                                        <p>styling comments through css</p>
+                                    </div>
+                                </div> -->
+
+                                
+                            </div>
+
                             <div class="formTitle">
                                 <span>Leave a comment</span>
                             </div>
-                            <form>
-                                <textarea class="formEle" name="comment" id="" cols="30" rows="10" placeholder="Your Comment"></textarea>
-                                <input class="formEle" type="text" placeholder="Your Name">
-                                <input class="formEle" type="text" placeholder="Your email">
+                            <form id="commentForm">
+                                <textarea required class="formEle content" name="content" id="" cols="30" rows="10" placeholder="Your Comment"></textarea>
+                                <input class="formEle name" required name="name" type="text" placeholder="Your Name">
+                                <input class="formEle email" type="email" name="email" placeholder="Your email">
                                 <button type="submit">Comment</button>
                             </form>
                         </div>
