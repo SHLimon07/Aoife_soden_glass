@@ -9,23 +9,6 @@ async function main()
 
 	//initializing the action panel
 	initActionPanel(recentData);
-
-	// var userData = {
-	// 	'username': 'admin',
-	// 	'password': 'admin'
-	// }
-
-	// var auth = new XMLHttpRequest();
-	// auth.open('POST','http://sajjad.jprkopat.com/semester2/glassart/WP-JSON/JWT-AUTH/V1/TOKEN');
-	// auth.setRequestHeader('Content-Type', 'application/json');
-	// auth.setRequestHeader('Accept', 'application/json');
-	// auth.send(JSON.stringify(userData));
-
-	// auth.onreadystatechange = function(){
-	// 	if(auth.readyState==4){
-	// 		console.log(auth.responseText);
-	// 	}
-	// }
 }
 
 function initActionPanel (recentData) {

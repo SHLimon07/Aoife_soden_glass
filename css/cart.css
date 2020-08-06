@@ -59,6 +59,24 @@
     padding: 15px 0;
 }
 
+.contentBody .product .delete {
+    padding-top: 10px;
+}
+
+.contentBody .product .delete .deleteBtn{
+    padding: 5px 10px;
+    background: var(--lightText);
+    border: none;
+    color: var(--navBgSolid);
+    cursor: pointer;
+    outline: none;
+}
+
+.contentBody .product .delete .deleteBtn:hover{
+    background: var(--navBgSolid);
+    color: var(--lightText);
+}
+
 .contentBody .moreButton {
     text-align: center;
 }
@@ -105,6 +123,7 @@
         display: grid;
         grid-template-columns: 300px 1fr;
         column-gap: 15px;
+        align-items: center;
     }
     .contentBody .product img {
         display: inline;

@@ -172,6 +172,10 @@ a:hover {
     -o-transition: all linear 0.3s;
 }
 
+#navBar .collaps.toggle {
+        height: 93vh;
+        opacity: 0.8;
+}
 
 /* done styling navBar */
 
@@ -204,8 +208,9 @@ a:hover {
     padding: 20px 0;
 }
 
-#bottomNav .navigation .item {
+#bottomNav .navigation .item a{
     padding: 10px 0;
+    color: #a8a8a8;
 }
 
 #bottomNav .navigation {
@@ -413,10 +418,7 @@ a:hover {
 }
 
 /* @media screen and (max-width: 1080px) { */
-    #navBar .collaps.toggle {
-        height: 93vh;
-        opacity: 0.8;
-    }
+    
 /* } */
 @media screen and (max-width: 768px) {
 	.pageHeading {

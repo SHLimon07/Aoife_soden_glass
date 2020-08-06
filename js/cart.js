@@ -1,24 +1,73 @@
 
 cartMain();
 
+var cartData;
+var inCart;
+var cartList;
+
 async function cartMain() {
 
     //getting the art shop posts
-    var cartData = getCartData();
+    cartData = getCartData();
+
+    document.querySelector('.productDivs').innerHTML = '';
 
     if(cartData.length==0)
         empty();
 
+
     //initializing the data to hmtl
     initContent(cartData);
 
+    deleteInit();
 }
 
+function deleteInit (itemId) {
+// body... 
+    var buttons = document.querySelectorAll('.deleteBtn');
+
+    for(var i=0;i<buttons.length;i++)
+    {
+        buttons[i].addEventListener('click',function(){
+            deleteItem(this.id);
+        })
+    }
+}
+
+function deleteItem (itemId) {
+    // body... 
+
+    delete inCart[itemId];
+
+    for(var i=0;i<cartList.length;i++)
+    {
+        if(cartList[i]==itemId){
+            cartList.splice(i, 1);
+            break;
+        }
+    }
+
+    updateCart();
+}
+
+function updateCart () {
+    // body... 
+    cartList = JSON.stringify(cartList);
+    localStorage.setItem("cartList", cartList);
+
+    inCart = JSON.stringify(inCart);
+    localStorage.setItem("inCart", inCart);
+
+    inCart = JSON.parse(inCart);
+    cartList = JSON.parse(cartList);
+
+    cartMain();
+}
 
 function empty () {
     // body... 
     var no = document.createElement('h1');
-    no.innerHTML = 'No Resutls';
+    no.innerHTML = 'Cart is Empty';
     no.style.textAlign = 'center';
     no.style.color = '#d8d8d8';  
     document.querySelector('.productDivs').appendChild(no);
@@ -27,10 +76,10 @@ function empty () {
 function getCartData () {
     // body... 
 
-    var inCart = localStorage.getItem("inCart");
+    inCart = localStorage.getItem("inCart");
     inCart = JSON.parse(inCart);
 
-    var cartList = localStorage.getItem("cartList");
+    cartList = localStorage.getItem("cartList");
     cartList = JSON.parse(cartList);
 
     var cartData = [];
@@ -90,6 +139,14 @@ function createItem (data,div) {
     var quantity = document.createElement('span');
     quantity.innerHTML = "Quantity: " + data.cart;
 
+    var deleteDiv = document.createElement('div');
+    deleteDiv.classList.add('delete');
+
+    var deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('deleteBtn');
+    deleteBtn.innerHTML = 'Delete';
+    deleteBtn.id = itemId;
+
     var textDiv = document.createElement('div');
     textDiv.classList.add('text');
 
@@ -107,6 +164,8 @@ function createItem (data,div) {
     priceDiv.appendChild(price);
     contentDiv.appendChild(quantityDiv);
     quantityDiv.appendChild(quantity);
+    contentDiv.appendChild(deleteDiv);
+    deleteDiv.appendChild(deleteBtn);
     contentDiv.appendChild(textDiv);
     textDiv.appendChild(text);
 }

@@ -40,14 +40,6 @@ function initHTML (data) {
 
 }
 
-function getContent (data) {
-    // body... 
-
-    var content = document.createElement('div');
-    content.innerHTML = data.content.rendered;
-    return content;
-}
-
 function getDetails (content, div) {
     // body... 
 
